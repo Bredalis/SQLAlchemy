@@ -10,7 +10,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
-# Tabla que representa la relción muchos a muchos
+# Representación de la relación muchos a muchos Lenguaje - Programador
 lenguajes_programador = db.Table("Lenguajes_Programador", 
 	db.Column("ID_Lenguaje", db.Integer, db.ForeignKey("Lenguaje.ID"), primary_key = True),
 	db.Column("ID_Programador", db.Integer, db.ForeignKey("Programador.ID"), primary_key = True)
@@ -49,7 +49,7 @@ class Programador(db.Model):
 	nombre = db.Column("Nombre", db.String(40))
 	edad = db.Column("Edad", db.Integer, nullable = True)
 
-	# Agregar una llave foranea - relación uno a uno
+	# Agregar una llave foranea - Relación uno a uno
 	empresa_id = db.Column("ID_Empresa", db.Integer, db.ForeignKey("Empresa.ID"))
 	empresa = db.relationship("Empresa", backref = db.backref("Programadores", lazy = True))
 
@@ -72,13 +72,13 @@ with app.app_context():
     db.session.add_all([empresa_1, empresa_2, empresa_3, empresa_4, empresa_5])
     
     # Insertar datos en la tabla Lenguaje
-    lenguaje1 = Lenguaje(nombre = "Python", creador = "Guido van Rossum")
-    lenguaje2 = Lenguaje(nombre = "JavaScript", creador = "Brendan Eich")
-    lenguaje3 = Lenguaje(nombre = "Java", creador = "James Gosling")
-    lenguaje4 = Lenguaje(nombre = "C#", creador = "Microsoft")
-    lenguaje5 = Lenguaje(nombre = "Ruby", creador = "Yukihiro Matsumoto")
+    lenguaje_1 = Lenguaje(nombre = "Python", creador = "Guido van Rossum")
+    lenguaje_2 = Lenguaje(nombre = "JavaScript", creador = "Brendan Eich")
+    lenguaje_3 = Lenguaje(nombre = "Java", creador = "James Gosling")
+    lenguaje_4 = Lenguaje(nombre = "C#", creador = "Microsoft")
+    lenguaje_5 = Lenguaje(nombre = "Ruby", creador = "Yukihiro Matsumoto")
     
-    db.session.add_all([lenguaje1, lenguaje2, lenguaje3, lenguaje4, lenguaje5])
+    db.session.add_all([lenguaje_1, lenguaje_2, lenguaje_3, lenguaje_4, lenguaje_5])
     
     # Insertar datos en la tabla Programador
     programador1 = Programador(nombre = "Alice", edad = 30, empresa = empresa_1)
@@ -88,11 +88,11 @@ with app.app_context():
     programador5 = Programador(nombre = "Eve", edad = 25, empresa = empresa_5)
     
     # Asociar programadores con lenguajes
-    programador1.lenguaje.append(lenguaje1)
-    programador2.lenguaje.append(lenguaje2)
-    programador3.lenguaje.append(lenguaje3)
-    programador4.lenguaje.append(lenguaje4)
-    programador5.lenguaje.append(lenguaje5)
+    programador1.lenguaje.append(lenguaje_1)
+    programador2.lenguaje.append(lenguaje_2)
+    programador3.lenguaje.append(lenguaje_3)
+    programador4.lenguaje.append(lenguaje_4)
+    programador5.lenguaje.append(lenguaje_5)
 
     db.session.add_all([programador1, programador2, programador3, programador4, programador5])
 

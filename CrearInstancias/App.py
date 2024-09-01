@@ -10,7 +10,7 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
 db = SQLAlchemy(app)
 
-# Modelo - estructura para guardar los datos
+# Modelo - Estructura para guardar los datos
 
 class BandasDeKpop(db.Model):
 	__tablename__ = "Bandas_De_Kpop" # Nombre de la tabla de bbdd
@@ -28,7 +28,7 @@ with app.app_context():
 	banda_1 = BandasDeKpop(nombre = "NewJeans", integrantes = 5)
 	banda_2 = BandasDeKpop(nombre = "Aespa", integrantes = 4)
 
-	# Agregar instancias a la seccion
+	# Agregar instancias a la sección
 	db.session.add(banda_1)
 	db.session.add(banda_2)
 
