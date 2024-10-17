@@ -53,6 +53,10 @@ Para utilizar SQLAlchemy en tu proyecto, sigue estos pasos:
 
 4. 🚀 Ejecuta tu aplicación Flask y observa cómo Flask-SQLAlchemy maneja la interacción con la base de datos.
 
+5. 📁 Si quieres ver algunos comandos adiccionales, mira este archivo:
+   ```
+    https://github.com/Bredalis/Commands/blob/master/SQLAlchemy.txt
+   ```
 <br>
 
 ## Licencia 📜
